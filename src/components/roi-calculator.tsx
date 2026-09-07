@@ -21,9 +21,9 @@ export function RoiCalculator() {
       <p className="font-sans text-xs tracking-[0.18em] uppercase text-faint">
         Time returned — model, not a promise
       </p>
-      <h3 className="mt-2 font-display text-2xl font-medium text-ink">
+      <h2 className="mt-2 font-display text-2xl font-medium text-ink">
         What happens if this school takes hours back.
-      </h3>
+      </h2>
       <p className="mt-2 font-serif text-[15px] leading-relaxed text-muted">
         OECD TALIS puts planning near 6.5 hours a week. Weekly AI users in the
         Gallup/Walton study recover 5.9 hours. Generic ChatGPT, in a rigorous UK

@@ -12,13 +12,13 @@
   --color-ink: #16181d;
   --color-ink-soft: #2c3038;
   --color-muted: #5c5850;
-  --color-faint: #8a8478;
+  --color-faint: #6f6a60;
   --color-steel: #3d4f63;
   --color-steel-2: #2c3b4b;
   --color-steel-fg: #f2efe8;
   --color-line: #d4cfc4;
   --color-rule: #b9b1a3;
-  --color-danger: #8a3a32;
+  --color-danger: #a8443b;
   --color-ok: #2f5d45;
   --color-warn: #7a5a28;
   --color-codex: #101218;
@@ -55,6 +55,11 @@
     cursor: pointer;
   }
 
+  :focus-visible {
+    outline: 2px solid var(--color-steel);
+    outline-offset: 3px;
+  }
+
   h1,
   h2,
   h3,
@@ -72,9 +77,39 @@
   }
 }
 
+@layer components {
+  .skip-link {
+    position: fixed;
+    z-index: 50;
+    top: 0.75rem;
+    left: 0.75rem;
+    transform: translateY(-160%);
+    border-radius: var(--radius-sm);
+    background: var(--color-ink);
+    padding: 0.75rem 1rem;
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: transform 150ms ease-out;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
