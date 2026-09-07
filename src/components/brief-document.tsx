@@ -18,11 +18,11 @@ const toc = [
   { id: "sources", n: "11", label: "Sources" },
 ];
 
-export function BriefDocument() {
+export function BriefDocument({ showCover = true }: { showCover?: boolean }) {
   return (
     <article className="mx-auto max-w-3xl">
-      <Cover />
-      <nav className="no-print mt-10 border-y border-line py-5">
+      {showCover ? <Cover /> : null}
+      {showCover ? <nav className="no-print mt-10 border-y border-line py-5">
         <p className="font-sans text-xs uppercase tracking-[0.18em] text-faint">Contents</p>
         <ol className="mt-4 grid gap-1 sm:grid-cols-2">
           {toc.map((item) => (
@@ -37,7 +37,7 @@ export function BriefDocument() {
             </li>
           ))}
         </ol>
-      </nav>
+      </nav> : null}
 
       <Section id="memo" kicker="00 — For the principal, in one page">
         <h2 className="font-display text-3xl font-medium tracking-tight text-ink">

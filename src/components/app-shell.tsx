@@ -1,4 +1,5 @@
 import { BriefDocument } from "@/components/brief-document";
+import { ProposalOverview } from "@/components/proposal-overview";
 import { Button } from "@/components/ui/button";
 
 export function AppShell() {
@@ -44,7 +45,10 @@ export function AppShell() {
         className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12"
         tabIndex={-1}
       >
-        <BriefDocument />
+        <ProposalOverview />
+        <div id="full-brief" className="mt-16">
+          <BriefDocument showCover={false} />
+        </div>
       </main>
 
       <footer className="no-print border-t border-line px-4 py-6 text-center font-sans text-xs text-faint">
