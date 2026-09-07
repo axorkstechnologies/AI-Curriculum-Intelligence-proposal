@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Cadence — Curriculum Intelligence",
+      "hasCanvas": false,
+      "bodyTextLen": 19378,
+      "bodyTextHash": "834ca462c145f7e781ec443680fbd4db36a4ecc77f439b94a7def8a5896f88bc",
+      "bodyTextPrefix": "Cadence CURRICULUM INTELLIGENCE Brief Vault Save as PDF CAD-2026",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Cadence — Curriculum Intelligence",
+      "hasCanvas": false,
+      "bodyTextLen": 19378,
+      "bodyTextHash": "834ca462c145f7e781ec443680fbd4db36a4ecc77f439b94a7def8a5896f88bc",
+      "bodyTextPrefix": "Cadence CURRICULUM INTELLIGENCE Brief Vault Save as PDF CAD-2026",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
