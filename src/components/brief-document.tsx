@@ -18,18 +18,18 @@ const toc = [
   { id: "sources", n: "11", label: "Sources" },
 ];
 
-export function BriefDocument() {
+export function BriefDocument({ showCover = true }: { showCover?: boolean }) {
   return (
     <article className="mx-auto max-w-3xl">
-      <Cover />
-      <nav className="no-print mt-10 border-y border-line py-5">
+      {showCover ? <Cover /> : null}
+      {showCover ? <nav className="no-print mt-10 border-y border-line py-5">
         <p className="font-sans text-xs uppercase tracking-[0.18em] text-faint">Contents</p>
         <ol className="mt-4 grid gap-1 sm:grid-cols-2">
           {toc.map((item) => (
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="flex items-baseline gap-3 py-1.5 font-sans text-sm text-ink-soft hover:text-ink"
+                className="flex items-baseline gap-3 rounded-sm py-1.5 font-sans text-sm text-ink-soft hover:bg-paper-2 hover:text-ink"
               >
                 <span className="tabular-nums text-faint">{item.n}</span>
                 <span>{item.label}</span>
@@ -37,7 +37,7 @@ export function BriefDocument() {
             </li>
           ))}
         </ol>
-      </nav>
+      </nav> : null}
 
       <Section id="memo" kicker="00 — For the principal, in one page">
         <h2 className="font-display text-3xl font-medium tracking-tight text-ink">
@@ -56,7 +56,7 @@ export function BriefDocument() {
             teacher’s working time — about 6.5 hours in the last comparable weekly breakdown,
             and still 14% in TALIS 2024. In Pakistan those hours mostly happen after the bell,
             on a laptop opened at five or six in the evening. That is not “preparation.” That
-            is the school’s instructional design, done unpaid, unshared, and uninspected.
+            is the school’s instructional design, often completed quietly, alone, and late.
           </p>
           <p>
             Generic AI looks like a rescue and is not. A UK randomised trial found ChatGPT
@@ -123,10 +123,10 @@ export function BriefDocument() {
         </h2>
         <div className="mt-6 space-y-4 font-serif text-[17px] leading-[1.65] text-ink-soft">
           <p>
-            Teachers already use ChatGPT. UNESCO’s 2024 teacher AI framework and TALIS 2024
-            both show the same pattern: the most common uses are summarising and generating
-            plans; the least common are assessment and professional judgement. That is
-            rational. A public model will write a lesson on “the digestive system.” It will
+            Teachers already use ChatGPT. The current evidence points to the same practical
+            divide: generic tools are useful for summarising and drafting plans, but not for
+            replacing assessment or professional judgement. That is rational. A public model
+            will write a lesson on “the digestive system.” It will
             not know that this campus lost two practicals to a lab clash, that Week 13 is a
             locked checkpoint, that the mid-year paper must still sample AO2, or that the
             cover teacher on Tuesday has never taught Science.
@@ -139,10 +139,10 @@ export function BriefDocument() {
             curriculum, coverage, and habit.
           </p>
           <p>
-            A school that “lets teachers use AI” has not integrated AI. It has privatised
-            risk. Every teacher becomes a prompt engineer of uneven skill. Inspection cannot
-            see it. A substitute cannot inherit it. When the teacher is absent, the chatbot
-            does not move the topic to next week. It simply was not asked.
+            A school that simply lets teachers use AI has created private, uneven workflows.
+            Every teacher becomes a prompt engineer with a different level of support.
+            Leadership cannot see the work, and a substitute cannot inherit it. When the teacher
+            is absent, the chatbot does not move the topic to next week. It simply was not asked.
           </p>
         </div>
         <div className="mt-8 overflow-x-auto print-avoid">
@@ -160,7 +160,7 @@ export function BriefDocument() {
                 ["Live coverage ledger for the HOD", "No", "Yes — taught / deferred / at risk"],
                 ["Absence rebalance without dropping CLOs", "No", "Yes — with cover packs"],
                 ["Cambridge command words & AOs", "If the teacher remembers", "Default, from the syllabus"],
-                ["Bloom + CLO/PLO on every lesson", "Optional", "Required"],
+                ["Bloom + CLOs/PLOs on every lesson", "Optional", "Required"],
                 ["Differentiation across ability bands", "A second prompt", "Three-band pack"],
                 ["Inspection-ready audit trail", "Chat history", "Term ledger"],
                 ["Time recovered, published evidence", "~25 min/week (NFER)", "Built for weekly institutional use"],
@@ -197,7 +197,7 @@ export function BriefDocument() {
             },
             {
               t: "Lessons that know why they exist",
-              d: "Every period carries command-word objectives, Bloom level, CLO/PLO, timed activities, AfL, and a close. Objectives are not topics. “Acids and bases” is a topic. “Distinguish strong and weak acids using pH evidence” is a lesson.",
+              d: "Every period carries command-word objectives, Bloom level, course/programme learning outcomes (CLOs/PLOs), timed activities, assessment for learning (AfL), and a close. Objectives are not topics. “Acids and bases” is a topic. “Distinguish strong and weak acids using pH evidence” is a lesson.",
             },
             {
               t: "Coverage that can be seen",
@@ -336,8 +336,7 @@ export function BriefDocument() {
             Muhammad Mujahid is a Cambridge-specialist CS and ICT educator with four-plus
             years of board-exam impact in Karachi. He has prepared 150+ students across
             O-Level, IGCSE and A-Level, and sustained a 72% A/B rate across four consecutive
-            CAIE cohorts, with a peak of 77% — above school-wide averages in the years those
-            figures were earned. He is qualified across four CAIE codes: O-Level CS 2210,
+            CAIE cohorts, with a peak of 77%. He is qualified across four CAIE codes: O-Level CS 2210,
             O-Level ICT 0417, IGCSE CS 0478, A-Level CS 9618.
           </p>
           <p>
@@ -345,16 +344,15 @@ export function BriefDocument() {
             lead on a full-stack learning platform. Microsoft Innovative Educator Expert,
             2025. He has authored a school-wide Cambridge-aligned resource library — lesson
             packs, revision guides, lab worksheets, mocks — that was adopted across year
-            groups. He has already been paid, informally, by teachers who needed plans
-            written. The demand is not hypothetical.
+            groups. Teachers have asked him to write their lesson plans. The demand is not
+            hypothetical.
           </p>
           <p>
             This combination is the reason to commission him rather than a vendor who has
-            read a syllabus PDF. He has written the planners. He has taught the 20–25 student
-            lab. He has sat the parent meeting. He knows which AI output a Cambridge HOD will
-            reject in thirty seconds. The implementation is mostly pedagogy and change
-            management. The software is how that pedagogy stays alive after the workshop
-            ends.
+            read a syllabus PDF. He has written the planners and knows which AI output a
+            Cambridge HOD will reject quickly. The implementation is mostly pedagogy and
+            change management. The software is how that pedagogy stays alive after the
+            workshop ends.
           </p>
         </div>
         <dl className="mt-8 grid grid-cols-2 gap-px bg-line sm:grid-cols-4">
@@ -386,7 +384,7 @@ export function BriefDocument() {
             {
               n: "02",
               t: "90-day pilot — two year groups, one department",
-              d: "Term planner, weekly schemes, daily lessons, cover packs, HOD ledger. Teachers edit; edits are the training data. We measure hours returned, coverage integrity, and teacher willingness to continue — not vanity dashboards.",
+              d: "Term planner, weekly schemes, daily lessons, cover packs, HOD ledger. Teachers edit; those edits refine the workflow. We measure hours returned, coverage integrity, and teacher willingness to continue — not vanity dashboards.",
             },
             {
               n: "03",
@@ -450,9 +448,30 @@ export function BriefDocument() {
             Cambridge CS & ICT Educator · O-Level · IGCSE · A-Level · MIEE 2025
           </p>
           <p className="mt-3 font-sans text-sm text-ink-soft">
-            +92 308 2789210 · muhammad.mujahid.dev@gmail.com
+            <a
+              className="rounded-sm underline decoration-line underline-offset-4 hover:text-ink"
+              href="tel:+923082789210"
+            >
+              +92 308 2789210
+            </a>
+            <span aria-hidden="true"> · </span>
+            <a
+              className="rounded-sm underline decoration-line underline-offset-4 hover:text-ink"
+              href="mailto:muhammad.mujahid.dev@gmail.com"
+            >
+              muhammad.mujahid.dev@gmail.com
+            </a>
             <br />
-            linkedin.com/in/muhammad-mujahid-dev · Karachi
+            <a
+              className="rounded-sm underline decoration-line underline-offset-4 hover:text-ink"
+              href="https://linkedin.com/in/muhammad-mujahid-dev"
+              target="_blank"
+              rel="noreferrer"
+            >
+              linkedin.com/in/muhammad-mujahid-dev
+            </a>
+            <span aria-hidden="true"> · </span>
+            Karachi
           </p>
         </div>
       </Section>
@@ -504,6 +523,32 @@ function Cover() {
         Not a chatbot. A way for the term to survive contact with absence, mixed ability, and
         a syllabus that will not sit still.
       </p>
+      <div className="mt-8 flex flex-wrap gap-3 font-sans text-sm font-medium">
+        <a
+          href="#engage"
+          className="inline-flex min-h-11 items-center rounded-md bg-ink px-4 text-paper hover:opacity-90"
+        >
+          See the pilot model
+        </a>
+        <a
+          href="#roi"
+          className="inline-flex min-h-11 items-center rounded-md border border-rule bg-paper-3 px-4 text-ink hover:bg-paper-2"
+        >
+          Estimate time returned
+        </a>
+      </div>
+      <dl className="mt-10 grid gap-px border-y border-rule bg-line sm:grid-cols-3">
+        {[
+          ["90 days", "Pilot period"],
+          ["2 year groups", "Initial scope"],
+          ["1 department", "Calibrated start"],
+        ].map(([value, label]) => (
+          <div key={label} className="bg-paper px-4 py-4 sm:px-5">
+            <dt className="font-sans text-xs uppercase tracking-[0.14em] text-faint">{label}</dt>
+            <dd className="mt-1 font-display text-2xl text-ink">{value}</dd>
+          </div>
+        ))}
+      </dl>
       <div className="mt-10 flex flex-col gap-1 font-sans text-sm text-ink-soft">
         <span>Prepared by Muhammad Mujahid</span>
         <span>Cambridge CS & ICT Educator · MIEE 2025</span>

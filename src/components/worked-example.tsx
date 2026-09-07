@@ -42,13 +42,15 @@ export function WorkedExample() {
           <p className="font-sans text-xs tracking-[0.18em] uppercase text-faint">
             Illustrative scenario — Year 6 Science, Cambridge Lower Secondary
           </p>
-          <h3 className="mt-2 font-display text-2xl font-medium text-ink">
-            A teacher is absent for two weeks. The May paper does not move.
-          </h3>
+          <h2 className="mt-2 font-display text-2xl font-medium text-ink">
+            A teacher is absent for two weeks. The assessment window does not move.
+          </h2>
         </div>
         <button
           type="button"
           onClick={() => setAbsent((v) => !v)}
+          aria-pressed={absent}
+          aria-label={absent ? "Show original pacing" : "Show pacing after a two-week absence"}
           className={cn(
             "h-11 shrink-0 rounded-md px-4 font-sans text-sm font-medium",
             absent ? "bg-ink text-paper" : "border border-rule bg-paper-3 text-ink",
